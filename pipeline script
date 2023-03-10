@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                git 'https://github.com/Smrafi80088/jenkins-ansible.git'
+            }
+        }
+        stage('execute playbook'){
+            steps{
+                ansiblePlaybook playbook: 'playbook.yml'
+                }
+            }
+        }
+    }
